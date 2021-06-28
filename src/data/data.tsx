@@ -24,4 +24,34 @@ export const menuData: MenuItem[] = [
     icon: 'alert-circle-outline',
     components: 'AlertScreen',
   },
+  {
+    id: 'bd7acbea-c1b1-123-ddd-3ad53abffddb28ba',
+    title: 'Inputs',
+    icon: 'document-text-outline',
+    components: 'TextInputScreen',
+  },
+  {
+    id: 'ad7acbea-c1b1-123-ddd-3ad53abffddb28ba',
+    title: 'PullToRefreshScreen',
+    icon: 'refresh-outline',
+    components: 'PullToRefreshScreen',
+  },
+  {
+    id: 'ad7acbea-c1b1-123-ddd-ewrwetret',
+    title: 'SectionListScreen',
+    icon: 'list-outline',
+    components: 'SectionListScreen',
+  },
+  {
+    id: 'rrrrr-c1b1-123-ddd-ffffwerwer',
+    title: 'ModalScreen',
+    icon: 'copy-outline',
+    components: 'ModalScreen',
+  },
+  {
+    id: 'frgsadasd-c1b1-123-ddd-rrrrredsdaf',
+    title: 'InfinitiveScrollScreen',
+    icon: 'download-outline',
+    components: 'InfinitiveScrollScreen',
+  },
 ];
