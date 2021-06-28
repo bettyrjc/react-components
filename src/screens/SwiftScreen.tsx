@@ -1,10 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useContext} from 'react';
 import {useState} from 'react';
 import {View, Text} from 'react-native';
-import {styles} from '../themes/appThemes';
+
 import HeaderTitle from '../components/HeaderTitle';
 import CustomSwitch from '../components/CustomSwitch';
+import {ThemeContext} from '../context/themeContext/ThemeContext';
 
 const SwiftScreen = () => {
   const [state, setState] = useState({
@@ -19,6 +20,9 @@ const SwiftScreen = () => {
       [field]: value,
     });
   };
+  const {
+    theme: {colors},
+  } = useContext(ThemeContext);
   return (
     <View style={{marginHorizontal: 20}}>
       <HeaderTitle title="Switches" />
@@ -27,7 +31,7 @@ const SwiftScreen = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
         }}>
-        <Text style={{fontSize: 25}}>isActive</Text>
+        <Text style={{fontSize: 25, color: colors.text}}>isActive</Text>
 
         <CustomSwitch
           isOn={isActive}
@@ -40,7 +44,7 @@ const SwiftScreen = () => {
           justifyContent: 'space-between',
           marginVertical: 20,
         }}>
-        <Text style={{fontSize: 25}}>isHungry</Text>
+        <Text style={{fontSize: 25, color: colors.text}}>isHungry</Text>
 
         <CustomSwitch
           isOn={isHungry}
@@ -52,14 +56,14 @@ const SwiftScreen = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
         }}>
-        <Text style={{fontSize: 25}}>isHappy</Text>
+        <Text style={{fontSize: 25, color: colors.text}}>isHappy</Text>
 
         <CustomSwitch
           isOn={isHappy}
           onChange={value => onChange(value, 'isHappy')}
         />
       </View>
-      <Text style={{fontSize: 25}}>{JSON.stringify(state, null, 5)}</Text>
+      <Text style={{fontSize: 25, color: colors.text}}>{JSON.stringify(state, null, 5)}</Text>
     </View>
   );
 };

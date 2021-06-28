@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   View,
   TextInput,
@@ -12,12 +12,12 @@ import {
   Text,
 } from 'react-native';
 
-
 import {styles} from '../themes/appThemes';
 import {useForm} from '../hooks/useForm';
 
 import HeaderTitle from '../components/HeaderTitle';
 import CustomSwitch from '../components/CustomSwitch';
+import {ThemeContext} from '../context/themeContext/ThemeContext';
 
 const TextInputScreen = () => {
   const {values, handleChange} = useForm({
@@ -26,6 +26,9 @@ const TextInputScreen = () => {
     phone: '',
     isSubscribe: false,
   });
+  const {
+    theme: {colors},
+  } = useContext(ThemeContext);
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -34,7 +37,7 @@ const TextInputScreen = () => {
           <View style={styles.globalMargin}>
             <HeaderTitle title="text inputs" />
             <TextInput
-              style={stylesScreen.input}
+              style={{...stylesScreen.input, borderColor: colors.border}}
               placeholder="Name"
               autoCorrect={false}
               autoCapitalize="words"
@@ -44,7 +47,7 @@ const TextInputScreen = () => {
             <HeaderTitle title={JSON.stringify(values, null, 3)} />
 
             <TextInput
-              style={stylesScreen.input}
+              style={{...stylesScreen.input, borderColor: colors.border}}
               placeholder="Email"
               autoCapitalize="none"
               autoCorrect={false}
@@ -52,7 +55,7 @@ const TextInputScreen = () => {
               keyboardType="email-address"
             />
             <TextInput
-              style={stylesScreen.input}
+              style={{...stylesScreen.input, borderColor: colors.border}}
               placeholder="Phone"
               autoCorrect={false}
               onChangeText={value => handleChange(value, 'phone')}
@@ -64,7 +67,9 @@ const TextInputScreen = () => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
               }}>
-              <Text style={{fontSize: 25}}>Subscribirse</Text>
+              <Text style={{fontSize: 25, color: colors.text}}>
+                Subscribirse
+              </Text>
 
               <CustomSwitch
                 isOn={values.isSubscribe}

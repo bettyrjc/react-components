@@ -1,11 +1,6 @@
-import React, {useRef} from 'react';
-import {
-  View,
-  Animated,
-  PanResponder,
-  StyleSheet,
-  Button,
-} from 'react-native';
+import React, {useContext, useRef} from 'react';
+import {View, Animated, PanResponder, StyleSheet, Button} from 'react-native';
+import {ThemeContext} from '../context/themeContext/ThemeContext';
 import useAnimation from '../hooks/useAnimation';
 
 const Animation101Screen = () => {
@@ -14,13 +9,16 @@ const Animation101Screen = () => {
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: Animated.event([
-      null,
-      {
-        dx: pan.x, // x,y are Animated.Value
-        dy: pan.y,
-      },
-    ], {useNativeDriver: false}),
+    onPanResponderMove: Animated.event(
+      [
+        null,
+        {
+          dx: pan.x, // x,y are Animated.Value
+          dy: pan.y,
+        },
+      ],
+      {useNativeDriver: false},
+    ),
     onPanResponderRelease: () => {
       Animated.spring(
         pan, // Auto-multiplexed
@@ -32,9 +30,8 @@ const Animation101Screen = () => {
     <View style={styles.container}>
       <Animated.View
         {...panResponder.panHandlers}
-        style={[pan.getLayout(), styles.purpleBox]}
+        style={[pan.getLayout(), {...styles.purpleBox}]}
       />
-
     </View>
   );
 };
@@ -48,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   purpleBox: {
-    backgroundColor: '#000',
+    backgroundColor: 'gray',
     width: 100,
     height: 100,
   },

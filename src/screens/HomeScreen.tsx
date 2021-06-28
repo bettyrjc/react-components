@@ -1,14 +1,16 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, FlatList} from 'react-native';
 
 import {styles} from '../themes/appThemes';
 import FlatListMenuItem from '../components/FlatListMenuItem';
 import {menuData} from '../data/data';
 import HeaderTitle from '../components/HeaderTitle';
+import {ThemeContext} from '../context/themeContext/ThemeContext';
 
 const HomeScreen = () => {
+  const {theme} = useContext(ThemeContext);
   const itemSeparator = () => {
     return (
       <View
@@ -16,7 +18,7 @@ const HomeScreen = () => {
           borderBottomWidth: 1,
           opacity: 0.5,
           marginVertical: 5,
-          borderBottomColor: 'gray',
+          borderBottomColor: theme.dividerColor,
         }}></View>
     );
   };

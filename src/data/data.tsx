@@ -54,4 +54,16 @@ export const menuData: MenuItem[] = [
     icon: 'download-outline',
     components: 'InfinitiveScrollScreen',
   },
+  {
+    id: 'frgsadasd-c1b1-1233-ddd-rrrrredsdaf',
+    title: 'SlidesScreen',
+    icon: 'flower-outline',
+    components: 'SlidesScreen',
+  },
+  {
+    id: '123456-c1b1-1233-ddd-rrrrredsdaf',
+    title: 'ChangeThemeScreen',
+    icon: 'flask-outline',
+    components: 'ChangeThemeScreen',
+  },
 ];
